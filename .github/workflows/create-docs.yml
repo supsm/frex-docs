@@ -27,6 +27,8 @@ jobs:
     - name: Push
       run: |
         cd ${{ github.workspace }}/frex-docs
+        git config user.name github-actions
+        git config user.email github-actions@github.com
         git add --all
         git commit -m "Update frex docs"
         git push
