@@ -23,7 +23,7 @@ jobs:
     - name: Compile
       run: clang++ genglsldocs-src/genglsldocs.cpp -std=c++20 -O2 -o genglsldocs
     - name: Execute
-      run: ./genglsldocs frex/common/src/main/resources/assets/frex/shaders/ --out ${{ github.workspace }}/frex-docs
+      run: ./genglsldocs frex/common/src/main/resources/assets/frex/shaders/ -o ${{ github.workspace }}/frex-docs
     - name: Push
       run: |
         cd ${{ github.workspace }}/frex-docs
