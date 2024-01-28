@@ -1,0 +1,32 @@
+name: Create Docs
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  create-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+      with:
+        path: frex-docs
+    - name: cd to temp
+      run: cd ${{ runner.temp }}
+    - name: Get genglsldocs
+      run: git clone https://github.com/supsm/genglsldocs genglsldocs-src
+    - name: Get frex
+      run: git clone https://github.com/vram-guild/frex -b 1.20.4 frex
+    - name: Compile
+      run: clang++ genglsldocs-src/genglsldocs.cpp -std=c++20 -O2 -o genglsldocs
+    - name: Execute
+      run: ./genglsldocs frex/common/src/main/resources/assets/frex/shaders/ --out ${{ github.workspace }}/frex-docs
+    - name: Push
+      run: |
+        cd ${{ github.workspace }}/frex-docs
+        git add --all
+        git commit -m "Update frex docs"
+        git push
