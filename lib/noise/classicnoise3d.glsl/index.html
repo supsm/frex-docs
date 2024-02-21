@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>classicnoise3d.glsl - Frex Docs</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "classicnoise3d.glsl";
+        var mkdocs_page_input_path = "lib/noise/classicnoise3d.glsl.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Frex Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/accessibility.h/">accessibility.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/fog.h/">fog.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/fragment.h/">fragment.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/header.h/">header.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/material.h/">material.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/player.h/">player.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/sampler.h/">sampler.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/vertex.h/">vertex.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/view.h/">view.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/world.h/">world.h</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lib</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../bitwise.glsl/">bitwise.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../color.glsl/">color.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../face.glsl/">face.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../math.glsl/">math.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../sample.glsl/">sample.glsl</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Noise</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../cellular2d.glsl/">cellular2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cellular2x2.glsl/">cellular2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cellular2x2x2.glsl/">cellular2x2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../cellular3d.glsl/">cellular3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../classicnoise2d.glsl/">classicnoise2d.glsl</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">classicnoise3d.glsl</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#preprocessor-include-frexshaderslibnoisenoisecommonglsl">Preprocessor: #include frex:shaders/lib/noise/noisecommon.glsl</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fadevec3-t">fade(vec3 t)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cnoisevec3-p">cnoise(vec3 P)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pnoisevec3-p-vec3-rep">pnoise(vec3 P, vec3 rep)</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../classicnoise4d.glsl/">classicnoise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise2d.glsl/">noise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise3d.glsl/">noise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise3dgrad.glsl/">noise3dgrad.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise4d.glsl/">noise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noisecommon.glsl/">noisecommon.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../psrdnoise2d.glsl/">psrdnoise2d.glsl</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Material</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../material/default.frag/">default.frag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../material/default.vert/">default.vert</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Frex Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lib</li>
+          <li class="breadcrumb-item">Noise</li>
+      <li class="breadcrumb-item active">classicnoise3d.glsl</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="classicnoise3dglsl">classicnoise3d.glsl</h1>
+<h2 id="preprocessor-include-frexshaderslibnoisenoisecommonglsl">Preprocessor: <code>#include frex:shaders/lib/noise/noisecommon.glsl</code></h2>
+<h2 id="fadevec3-t"><code>fade(vec3 t)</code></h2>
+<hr />
+<p>frex:shaders/lib/noise/classicnoise3d.glsl
+External MIT noise library - bundled for convenience.
+No modifications have been made except to remove
+the #version header, add this comment block, and
+move some shared functions to noisecommon.glsl.</p>
+<hr />
+<p>GLSL textureless classic 3D noise "cnoise",
+ with an RSL-style periodic variant "pnoise".
+ Author:  Stefan Gustavson (stefan.gustavson@liu.se)
+ Version: 2011-10-11
+ Many thanks to Ian McEwan of Ashima Arts for the
+ ideas for permutation and gradient selection.
+ Copyright (c) 2011 Stefan Gustavson. All rights reserved.
+ Distributed under the MIT license. See LICENSE file.
+ https://github.com/stegu/webgl-noise</p>
+<pre><code class="language-glsl">{
+    return t*t*t*(t*(t*6.0-15.0)+10.0);
+}
+</code></pre>
+<h2 id="cnoisevec3-p"><code>cnoise(vec3 P)</code></h2>
+<p>Classic Perlin noise</p>
+<pre><code class="language-glsl">{
+    vec3 Pi0 = floor(P);// Integer part for indexing
+    vec3 Pi1 = Pi0 + vec3(1.0);// Integer part + 1
+    Pi0 = mod289(Pi0);
+    Pi1 = mod289(Pi1);
+    vec3 Pf0 = fract(P);// Fractional part for interpolation
+    vec3 Pf1 = Pf0 - vec3(1.0);// Fractional part - 1.0
+    vec4 ix = vec4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
+    vec4 iy = vec4(Pi0.yy, Pi1.yy);
+    vec4 iz0 = Pi0.zzzz;
+    vec4 iz1 = Pi1.zzzz;
+
+    vec4 ixy = permute(permute(ix) + iy);
+    vec4 ixy0 = permute(ixy + iz0);
+    vec4 ixy1 = permute(ixy + iz1);
+
+    vec4 gx0 = ixy0 * (1.0 / 7.0);
+    vec4 gy0 = fract(floor(gx0) * (1.0 / 7.0)) - 0.5;
+    gx0 = fract(gx0);
+    vec4 gz0 = vec4(0.5) - abs(gx0) - abs(gy0);
+    vec4 sz0 = step(gz0, vec4(0.0));
+    gx0 -= sz0 * (step(0.0, gx0) - 0.5);
+    gy0 -= sz0 * (step(0.0, gy0) - 0.5);
+
+    vec4 gx1 = ixy1 * (1.0 / 7.0);
+    vec4 gy1 = fract(floor(gx1) * (1.0 / 7.0)) - 0.5;
+    gx1 = fract(gx1);
+    vec4 gz1 = vec4(0.5) - abs(gx1) - abs(gy1);
+    vec4 sz1 = step(gz1, vec4(0.0));
+    gx1 -= sz1 * (step(0.0, gx1) - 0.5);
+    gy1 -= sz1 * (step(0.0, gy1) - 0.5);
+
+    vec3 g000 = vec3(gx0.x, gy0.x, gz0.x);
+    vec3 g100 = vec3(gx0.y, gy0.y, gz0.y);
+    vec3 g010 = vec3(gx0.z, gy0.z, gz0.z);
+    vec3 g110 = vec3(gx0.w, gy0.w, gz0.w);
+    vec3 g001 = vec3(gx1.x, gy1.x, gz1.x);
+    vec3 g101 = vec3(gx1.y, gy1.y, gz1.y);
+    vec3 g011 = vec3(gx1.z, gy1.z, gz1.z);
+    vec3 g111 = vec3(gx1.w, gy1.w, gz1.w);
+
+    vec4 norm0 = taylorInvSqrt(vec4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
+    g000 *= norm0.x;
+    g010 *= norm0.y;
+    g100 *= norm0.z;
+    g110 *= norm0.w;
+    vec4 norm1 = taylorInvSqrt(vec4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
+    g001 *= norm1.x;
+    g011 *= norm1.y;
+    g101 *= norm1.z;
+    g111 *= norm1.w;
+
+    float n000 = dot(g000, Pf0);
+    float n100 = dot(g100, vec3(Pf1.x, Pf0.yz));
+    float n010 = dot(g010, vec3(Pf0.x, Pf1.y, Pf0.z));
+    float n110 = dot(g110, vec3(Pf1.xy, Pf0.z));
+    float n001 = dot(g001, vec3(Pf0.xy, Pf1.z));
+    float n101 = dot(g101, vec3(Pf1.x, Pf0.y, Pf1.z));
+    float n011 = dot(g011, vec3(Pf0.x, Pf1.yz));
+    float n111 = dot(g111, Pf1);
+
+    vec3 fade_xyz = fade(Pf0);
+    vec4 n_z = mix(vec4(n000, n100, n010, n110), vec4(n001, n101, n011, n111), fade_xyz.z);
+    vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);
+    float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x);
+    return 2.2 * n_xyz;
+}
+</code></pre>
+<h2 id="pnoisevec3-p-vec3-rep"><code>pnoise(vec3 P, vec3 rep)</code></h2>
+<p>Classic Perlin noise, periodic variant</p>
+<pre><code class="language-glsl">{
+    vec3 Pi0 = mod(floor(P), rep);// Integer part, modulo period
+    vec3 Pi1 = mod(Pi0 + vec3(1.0), rep);// Integer part + 1, mod period
+    Pi0 = mod289(Pi0);
+    Pi1 = mod289(Pi1);
+    vec3 Pf0 = fract(P);// Fractional part for interpolation
+    vec3 Pf1 = Pf0 - vec3(1.0);// Fractional part - 1.0
+    vec4 ix = vec4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
+    vec4 iy = vec4(Pi0.yy, Pi1.yy);
+    vec4 iz0 = Pi0.zzzz;
+    vec4 iz1 = Pi1.zzzz;
+
+    vec4 ixy = permute(permute(ix) + iy);
+    vec4 ixy0 = permute(ixy + iz0);
+    vec4 ixy1 = permute(ixy + iz1);
+
+    vec4 gx0 = ixy0 * (1.0 / 7.0);
+    vec4 gy0 = fract(floor(gx0) * (1.0 / 7.0)) - 0.5;
+    gx0 = fract(gx0);
+    vec4 gz0 = vec4(0.5) - abs(gx0) - abs(gy0);
+    vec4 sz0 = step(gz0, vec4(0.0));
+    gx0 -= sz0 * (step(0.0, gx0) - 0.5);
+    gy0 -= sz0 * (step(0.0, gy0) - 0.5);
+
+    vec4 gx1 = ixy1 * (1.0 / 7.0);
+    vec4 gy1 = fract(floor(gx1) * (1.0 / 7.0)) - 0.5;
+    gx1 = fract(gx1);
+    vec4 gz1 = vec4(0.5) - abs(gx1) - abs(gy1);
+    vec4 sz1 = step(gz1, vec4(0.0));
+    gx1 -= sz1 * (step(0.0, gx1) - 0.5);
+    gy1 -= sz1 * (step(0.0, gy1) - 0.5);
+
+    vec3 g000 = vec3(gx0.x, gy0.x, gz0.x);
+    vec3 g100 = vec3(gx0.y, gy0.y, gz0.y);
+    vec3 g010 = vec3(gx0.z, gy0.z, gz0.z);
+    vec3 g110 = vec3(gx0.w, gy0.w, gz0.w);
+    vec3 g001 = vec3(gx1.x, gy1.x, gz1.x);
+    vec3 g101 = vec3(gx1.y, gy1.y, gz1.y);
+    vec3 g011 = vec3(gx1.z, gy1.z, gz1.z);
+    vec3 g111 = vec3(gx1.w, gy1.w, gz1.w);
+
+    vec4 norm0 = taylorInvSqrt(vec4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
+    g000 *= norm0.x;
+    g010 *= norm0.y;
+    g100 *= norm0.z;
+    g110 *= norm0.w;
+    vec4 norm1 = taylorInvSqrt(vec4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
+    g001 *= norm1.x;
+    g011 *= norm1.y;
+    g101 *= norm1.z;
+    g111 *= norm1.w;
+
+    float n000 = dot(g000, Pf0);
+    float n100 = dot(g100, vec3(Pf1.x, Pf0.yz));
+    float n010 = dot(g010, vec3(Pf0.x, Pf1.y, Pf0.z));
+    float n110 = dot(g110, vec3(Pf1.xy, Pf0.z));
+    float n001 = dot(g001, vec3(Pf0.xy, Pf1.z));
+    float n101 = dot(g101, vec3(Pf1.x, Pf0.y, Pf1.z));
+    float n011 = dot(g011, vec3(Pf0.x, Pf1.yz));
+    float n111 = dot(g111, Pf1);
+
+    vec3 fade_xyz = fade(Pf0);
+    vec4 n_z = mix(vec4(n000, n100, n010, n110), vec4(n001, n101, n011, n111), fade_xyz.z);
+    vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);
+    float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x);
+    return 2.2 * n_xyz;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../classicnoise2d.glsl/" class="btn btn-neutral float-left" title="classicnoise2d.glsl"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../classicnoise4d.glsl/" class="btn btn-neutral float-right" title="classicnoise4d.glsl">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../classicnoise2d.glsl/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../classicnoise4d.glsl/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

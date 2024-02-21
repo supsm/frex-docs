@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>math.glsl - Frex Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "math.glsl";
+        var mkdocs_page_input_path = "lib/math.glsl.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Frex Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/accessibility.h/">accessibility.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/fog.h/">fog.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/fragment.h/">fragment.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/header.h/">header.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/material.h/">material.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/player.h/">player.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/sampler.h/">sampler.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/vertex.h/">vertex.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/view.h/">view.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/world.h/">world.h</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lib</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise.glsl/">bitwise.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../color.glsl/">color.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../face.glsl/">face.glsl</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">math.glsl</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-pi-31415926535897932384626433832795">Preprocessor: #define PI            3.1415926535897932384626433832795</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-half_pi-157079632679489661923-i-prefer-a-whole-pi-when-i-can-get-it-but-i-wont-say-no-to-half">Preprocessor: #define HALF_PI         1.57079632679489661923 // I prefer a whole pi when I can get it, but I won't say no to half.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-tau-62831853071795864769252867665590-two-pi">Preprocessor: #define TAU           6.2831853071795864769252867665590 // two PI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_noise2dvec2-st">frx_noise2d(vec2 st)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_smootherstepfloat-edge0-float-edge1-float-x">frx_smootherstep(float edge0, float edge1, float x)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_smootherstepfloat-edge0-float-edge1-vec3-value">frx_smootherstep(float edge0, float edge1, vec3 value)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_noise2dtin-vec2-st-float-t">frx_noise2dt(in vec2 st, float t)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_luminancevec3-color">frx_luminance(vec3 color)</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sample.glsl/">sample.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Noise</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2d.glsl/">cellular2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2x2.glsl/">cellular2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2x2x2.glsl/">cellular2x2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular3d.glsl/">cellular3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise2d.glsl/">classicnoise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise3d.glsl/">classicnoise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise4d.glsl/">classicnoise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise2d.glsl/">noise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise3d.glsl/">noise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise3dgrad.glsl/">noise3dgrad.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise4d.glsl/">noise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noisecommon.glsl/">noisecommon.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/psrdnoise2d.glsl/">psrdnoise2d.glsl</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Material</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.frag/">default.frag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.vert/">default.vert</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Frex Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lib</li>
+      <li class="breadcrumb-item active">math.glsl</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mathglsl">math.glsl</h1>
+<hr />
+<p>frex:shaders/lib/math.glsl
+Commonly useful declarations and utilities.
+Use of these is entirely optional - half the fun
+is making your own.</p>
+<hr />
+<h2 id="preprocessor-define-pi-31415926535897932384626433832795">Preprocessor: <code>#define PI            3.1415926535897932384626433832795</code></h2>
+<h2 id="preprocessor-define-half_pi-157079632679489661923-i-prefer-a-whole-pi-when-i-can-get-it-but-i-wont-say-no-to-half">Preprocessor: <code>#define HALF_PI         1.57079632679489661923 // I prefer a whole pi when I can get it, but I won't say no to half.</code></h2>
+<h2 id="preprocessor-define-tau-62831853071795864769252867665590-two-pi">Preprocessor: <code>#define TAU           6.2831853071795864769252867665590 // two PI</code></h2>
+<h2 id="frx_noise2dvec2-st"><code>frx_noise2d(vec2 st)</code></h2>
+<p>Has been around forever.  Gives a psuedorandom
+  hash value given two variables. Wouldn't be OK
+  for cryptography but may get the job done here.</p>
+<p>https://thebookofshaders.com/10/
+  https://stackoverflow.com/questions/12964279/whats-the-origin-of-this-glsl-rand-one-liner</p>
+<pre><code class="language-glsl">{
+    return fract(sin(dot(st.xy, vec2(12.9898, 78.233)))*43758.5453123);
+}
+</code></pre>
+<h2 id="frx_smootherstepfloat-edge0-float-edge1-float-x"><code>frx_smootherstep(float edge0, float edge1, float x)</code></h2>
+<p>Ken Perlin's improved smoothstep</p>
+<pre><code class="language-glsl">{
+    // Scale, and clamp to 0..1 range
+    x = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
+    // Evaluate polynomial
+    return x * x * x * (x * (x * 6 - 15) + 10);
+}
+</code></pre>
+<h2 id="frx_smootherstepfloat-edge0-float-edge1-vec3-value"><code>frx_smootherstep(float edge0, float edge1, vec3 value)</code></h2>
+<p>Ken Perlin's improved smoothstep</p>
+<pre><code class="language-glsl">{
+    // Scale, and clamp to 0..1 range
+    vec3 r = clamp((value - edge0) / (edge1 - edge0), 0.0, 1.0);
+    // Evaluate polynomial
+    return r * r * r * (r * (r * 6 - 15) + 10);
+}
+</code></pre>
+<h2 id="frx_noise2dtin-vec2-st-float-t"><code>frx_noise2dt(in vec2 st, float t)</code></h2>
+<p>Animated 2d noise function,
+  designed to accept a time parameter.</p>
+<p>Based in part on 2D Noise by Morgan McGuire @morgan3d
+  https://www.shadertoy.com/view/4dS3Wd</p>
+<pre><code class="language-glsl">{
+    vec2 i = floor(st);
+    vec2 f = fract(st);
+
+    // Compute values for four corners
+    float a = frx_noise2d(i);
+    float b = frx_noise2d(i + vec2(1.0, 0.0));
+    float c = frx_noise2d(i + vec2(0.0, 1.0));
+    float d = frx_noise2d(i + vec2(1.0, 1.0));
+
+    a =  0.5 + sin((0.5 + a) * t) * 0.5;
+    b =  0.5 + sin((0.5 + b) * t) * 0.5;
+    c =  0.5 + sin((0.5 + c) * t) * 0.5;
+    d =  0.5 + sin((0.5 + d) * t) * 0.5;
+
+    // Mix 4 corners
+    return mix(a, b, f.x) +
+    (c - a)* f.y * (1.0 - f.x) +
+    (d - b) * f.x * f.y;
+}
+</code></pre>
+<h2 id="frx_luminancevec3-color"><code>frx_luminance(vec3 color)</code></h2>
+<p>Converts RGB to grayscale.</p>
+<pre><code class="language-glsl">{
+    return dot(color.rgb, vec3(0.299, 0.587, 0.114));
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../face.glsl/" class="btn btn-neutral float-left" title="face.glsl"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sample.glsl/" class="btn btn-neutral float-right" title="sample.glsl">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../face.glsl/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sample.glsl/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

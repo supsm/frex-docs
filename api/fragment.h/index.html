@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>fragment.h - Frex Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "fragment.h";
+        var mkdocs_page_input_path = "api/fragment.h.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Frex Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../accessibility.h/">accessibility.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fog.h/">fog.h</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">fragment.h</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec4-frx_vertex">in vec4 frx_vertex</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec2-frx_texcoord">in vec2 frx_texcoord</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec4-frx_vertexcolor">in vec4 frx_vertexColor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec3-frx_vertexnormal">in vec3 frx_vertexNormal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec4-frx_vertextangent">in vec4 frx_vertexTangent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec3-frx_vertexlight">in vec3 frx_vertexLight</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-float-frx_distance">in float frx_distance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec4-frx_var0">in vec4 frx_var0</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec4-frx_var1">in vec4 frx_var1</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec4-frx_var2">in vec4 frx_var2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-vec4-frx_var3">in vec4 frx_var3</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec4-frx_samplecolor">const vec4 frx_sampleColor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vec4-frx_fragcolor">vec4 frx_fragColor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#float-frx_fragreflectance">float frx_fragReflectance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vec3-frx_fragnormal">vec3 frx_fragNormal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#float-frx_fragheight">float frx_fragHeight</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#float-frx_fragroughness">float frx_fragRoughness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#float-frx_fragemissive">float frx_fragEmissive</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vec3-frx_fraglight">vec3 frx_fragLight</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#float-frx_fragao">float frx_fragAo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bool-frx_fragenableao">bool frx_fragEnableAo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bool-frx_fragenablediffuse">bool frx_fragEnableDiffuse</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_materialfragment-prototype">frx_materialFragment() [PROTOTYPE]**********</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_pipelinefragment-prototype">frx_pipelineFragment() [PROTOTYPE]</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../header.h/">header.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material.h/">material.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../player.h/">player.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sampler.h/">sampler.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vertex.h/">vertex.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../view.h/">view.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../world.h/">world.h</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lib</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/bitwise.glsl/">bitwise.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/color.glsl/">color.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/face.glsl/">face.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/math.glsl/">math.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/sample.glsl/">sample.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Noise</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2d.glsl/">cellular2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2x2.glsl/">cellular2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2x2x2.glsl/">cellular2x2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular3d.glsl/">cellular3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise2d.glsl/">classicnoise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise3d.glsl/">classicnoise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise4d.glsl/">classicnoise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise2d.glsl/">noise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise3d.glsl/">noise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise3dgrad.glsl/">noise3dgrad.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise4d.glsl/">noise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noisecommon.glsl/">noisecommon.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/psrdnoise2d.glsl/">psrdnoise2d.glsl</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Material</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.frag/">default.frag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.vert/">default.vert</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Frex Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Api</li>
+      <li class="breadcrumb-item active">fragment.h</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fragmenth">fragment.h</h1>
+<hr />
+<p>Specifies the variables and methods in the FREX shader
+  API sepcific to fragment shaders.</p>
+<p>See FREX Shader API.md for license and general informaiton.</p>
+<hr />
+<h2 id="in-vec4-frx_vertex"><code>in vec4 frx_vertex</code></h2>
+<hr />
+<p>VERTEX INPUTS</p>
+<hr />
+<p>Interpolated vertex position in camera space.</p>
+<h2 id="in-vec2-frx_texcoord"><code>in vec2 frx_texcoord</code></h2>
+<p>Interpolated texture coordinate. For atlas textures, this
+  is in mapped (non-normalized) coordinates. Material fragment
+  shaders that need normalized UV coordinates should capture
+  them in the vertex shader using one of the generic variables
+  defined below.</p>
+<h2 id="in-vec4-frx_vertexcolor"><code>in vec4 frx_vertexColor</code></h2>
+<p>Interpolated vertex color from vertex shader.</p>
+<h2 id="in-vec3-frx_vertexnormal"><code>in vec3 frx_vertexNormal</code></h2>
+<p>Interpolated vertex normal in world/camera space.</p>
+<h2 id="in-vec4-frx_vertextangent"><code>in vec4 frx_vertexTangent</code></h2>
+<p>Interpoliated vertex tangent in camera/world space. Component w is -1.0
+  when the tangent handedness is inverted because of texture flipping, and 1.0 normally.</p>
+<h2 id="in-vec3-frx_vertexlight"><code>in vec3 frx_vertexLight</code></h2>
+<p>Interpolated vanilla lighting data from CPU.
+  Depending on the context or lighting model in effect,
+  this may not be a unit vector and/or unused.
+  The emissive flag or an emissive texture map (when supported)
+  are generally better alternatives for achieving emissive lighting effects.</p>
+<p>All values are normalized (0-1).
+  X: Block light intensity from vertex shader.
+  Y: Sky light intensity from vertex shader.
+  Z: AO shading from vertex shader.</p>
+<p>Not available in depth pass.
+  Gate usage with #ifndef DEPTH_PASS.</p>
+<h2 id="in-float-frx_distance"><code>in float frx_distance</code></h2>
+<p>Interpolated camera distance. Used for fog.
+  Not available in depth pass.</p>
+<h2 id="in-vec4-frx_var0"><code>in vec4 frx_var0</code></h2>
+<p>Varying variables for generic use. See comments in vertex.glsl.</p>
+<p>Not available in depth pass.
+  Gate usage with #ifndef DEPTH_PASS.</p>
+<h2 id="in-vec4-frx_var1"><code>in vec4 frx_var1</code></h2>
+<h2 id="in-vec4-frx_var2"><code>in vec4 frx_var2</code></h2>
+<h2 id="in-vec4-frx_var3"><code>in vec4 frx_var3</code></h2>
+<h2 id="const-vec4-frx_samplecolor"><code>const vec4 frx_sampleColor</code></h2>
+<hr />
+<p>FRAGMENT INPUT SAMPLES</p>
+<hr />
+<p>The unmodified color sampled from the base color texture.</p>
+<p>Interpretation of this color depends on frx_fragMetalness,
+  as described in the comments for that variable.</p>
+<h2 id="vec4-frx_fragcolor"><code>vec4 frx_fragColor</code></h2>
+<hr />
+<p>FRAGMENT VARIABLES</p>
+<p>These can be modified by material shaders and are
+  consumed by pipelline shaders for shading and
+  framebuffer output.</p>
+<hr />
+<p>The base color output for this fragment.
+  Initial value when frx_materialFragment() is called will
+  be frx_vertexColor   frx_sampleColor.</p>
+<p>Interpretation of this color depends on frx_fragMetalness,
+  as described in the comments for that variable.</p>
+<h2 id="float-frx_fragreflectance"><code>float frx_fragReflectance</code></h2>
+<p>Controls if the fragment material is dialectric or metallic.
+  For dialectric materials, this provides the F0 value.</p>
+<p>The range of values is not continuous to maximize floating point
+  precision in useful ranges.  Dialectic materials
+  will have values ranging from 0.0 to 0.1 and metals will
+  have the value 1.0.</p>
+<p>When the material is dialectric, frx_fragColor models
+  diffuse reflected color and frx_fragReflectance
+  is the linear monochrome specular reflectance (F0).</p>
+<p>When the material is metallic, frx_fragColor
+  models specular reflectance, which for metals is often not
+  uniform across the light spectrum and responsible for the perceived
+  color of metals.</p>
+<p>Initial value when frx_materialFragment() is called will
+  be sampled from the metalness texture map.</p>
+<p>Not available in depth pass.
+  Not available if PBR is inactive.
+  Gate usage with #ifdef PBR_ENABLED.</p>
+<h2 id="vec3-frx_fragnormal"><code>vec3 frx_fragNormal</code></h2>
+<p>Fragment normal in tangent space.</p>
+<p>Initial value when frx_materialFragment() is called will
+  be sampled from the normal map.</p>
+<p>The pipeline shader will consume this for lighting. If any
+  transformation is needed because of smoothed vertex normals or
+  because the pipeline computes lighting in world space, those
+  transformations will be done by the pipeline shader
+  after frx_materialFragment() runs.</p>
+<p>Not available in depth pass.
+  Not available if PBR is inactive.
+  Gate usage with #ifdef PBR_ENABLED.</p>
+<h2 id="float-frx_fragheight"><code>float frx_fragHeight</code></h2>
+<p>Base height map value to be consumed by pipeline for lighting.
+  Values range from -0.25 to 0.25 and represent distance below or above
+  the triangle plane in tangent space.</p>
+<p>Initial value when frx_materialFragment() is called will be sampled
+  from the height texture map.</p>
+<p>The primary use for this by material shaders is to provide PBR support for
+  animated, proecedural surfaces.</p>
+<p>Not available in depth pass.
+  Not available if PBR is inactive.
+  Gate usage with #ifdef PBR_ENABLED.</p>
+<h2 id="float-frx_fragroughness"><code>float frx_fragRoughness</code></h2>
+<p>Models random light scattering caused by tiny surface irregularities.
+  Values range from 0.0 (perfectly smooth) to 1.0 (rough as possible.)</p>
+<p>Initial value when frx_materialFragment() is called will be sampled
+  from the roughness texture map.</p>
+<p>Not available in depth pass.
+  Not available if PBR is inactive.
+  Gate usage with #ifdef PBR_ENABLED.</p>
+<h2 id="float-frx_fragemissive"><code>float frx_fragEmissive</code></h2>
+<p>Emissive value of this fragment.</p>
+<p>Initial value when frx_materialFragment() is called will
+  be frx_sampleEmissive if material maps are available, or
+  frx_matEmissiveFactor otherwise.</p>
+<p>The pipeline shader will consume this for lighting after
+  frx_materialFragment() runs.</p>
+<p>Not available in depth pass.
+  Gate usage with #ifndef DEPTH_PASS.</p>
+<h2 id="vec3-frx_fraglight"><code>vec3 frx_fragLight</code></h2>
+<p>Lighting data for this fragment.
+  Depending on the context or lighting model in effect,
+  these values may not be used or may be used differently.
+  The emissive flag or an emissive texture map (when supported)
+  are generally better alternatives for achieving emissive lighting effects.</p>
+<p>All values are normalized (0-1).
+  X: Block light intensity. Initialized to frx_vertexLight.x.
+  Y: Sky light intensity. Initialized to frx_vertexLight.y;
+  Z: Macro AO shading. Initialized to frx_vertexLight.z</p>
+<p>Not available in depth pass.
+  Gate usage with #ifndef DEPTH_PASS.</p>
+<h2 id="float-frx_fragao"><code>float frx_fragAo</code></h2>
+<p>Models self-shading of small variations in irregular surfaces.
+  It should not be used for shading by other objects in the world.</p>
+<p>Initial value when frx_materialFragment() is called will be sampled
+  from the AO texture map.</p>
+<p>The primary use for this by material shaders is to provide PBR support for
+  animated, proecedural surfaces.</p>
+<p>Macro-scale AO is controlled and applied by the pipeline.  See frx_fragDisableAo.</p>
+<p>Not available in depth pass.
+  Not available if PBR is inactive.
+  Gate usage with #ifdef PBR_ENABLED.</p>
+<h2 id="bool-frx_fragenableao"><code>bool frx_fragEnableAo</code></h2>
+<p>Controls macro-scale AO shading applied by the pipeline based on
+  proxmity of other objects in the world. Initialized to !frx_matDisableAo.
+  Depending on the context or lighting model in effect,
+  this may not be used or may be used differently.</p>
+<p>Not available in depth pass.
+  Gate usage with #ifndef DEPTH_PASS.</p>
+<h2 id="bool-frx_fragenablediffuse"><code>bool frx_fragEnableDiffuse</code></h2>
+<p>Controls direcional shading applied by the pipeline based on
+  surface normals and light sources. Initialized to !frx_matDisableDiffuse.
+  Depending on the context or lighting model in effect,
+  this may not be used or may be used differently.</p>
+<p>Not available in depth pass.
+  Gate usage with #ifndef DEPTH_PASS.</p>
+<h2 id="frx_materialfragment-prototype"><code>frx_materialFragment()</code> [PROTOTYPE]<strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong>*</strong>*</h2>
+<p>API METHODS</p>
+<hr />
+<p>Called by renderer after all variables are initialized and before
+  frx_pipelineFragment() is called to output a fragment.</p>
+<p>The running fragment shader will have multiple, renamed versions of
+  this method - one for each unique material fragment shader present
+  in the game. The specific method called is controlled by the material
+  associated with the current triangle.  If the current material does
+  not define a custom material shader, no extra processing will happen
+  before frx_pipelineFragment() is called.</p>
+<h2 id="frx_pipelinefragment-prototype"><code>frx_pipelineFragment()</code> [PROTOTYPE]</h2>
+<p>Called by renderer after frx_materialFragment() completes.
+  Pipeline authors implement this method to read fragment data,
+  apply transformation or shading and output to one or more framebuffer
+  attachments.  These steps are specific to the design of each pipeline.</p>
+<p>The pipeline shader is responsible for ALL WRITES.
+  The renderer will not update depth or any color attachment.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../fog.h/" class="btn btn-neutral float-left" title="fog.h"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../header.h/" class="btn btn-neutral float-right" title="header.h">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../fog.h/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../header.h/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

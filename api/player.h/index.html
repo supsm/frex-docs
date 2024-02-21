@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>player.h - Frex Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "player.h";
+        var mkdocs_page_input_path = "api/player.h.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Frex Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../accessibility.h/">accessibility.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fog.h/">fog.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fragment.h/">fragment.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../header.h/">header.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material.h/">material.h</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">player.h</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_effectmodifier">const float frx_effectModifier</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_darknesseffectfactor">const float frx_darknessEffectFactor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec4-frx_heldlight">const vec4 frx_heldLight</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_heldlightinnerradius">const float frx_heldLightInnerRadius</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_heldlightouterradius">const float frx_heldLightOuterRadius</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectspeed">const int frx_effectSpeed</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectslowness">const int frx_effectSlowness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effecthast">const int frx_effectHast</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectminingfatigue">const int frx_effectMiningFatigue</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectstrength">const int frx_effectStrength</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectinstanthealth">const int frx_effectInstantHealth</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectinstantdamage">const int frx_effectInstantDamage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectjumpboost">const int frx_effectJumpBoost</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectnausea">const int frx_effectNausea</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectregeneration">const int frx_effectRegeneration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectresistance">const int frx_effectResistance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectfireresistance">const int frx_effectFireResistance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectwaterbreathing">const int frx_effectWaterBreathing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectinvisibility">const int frx_effectInvisibility</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectblindness">const int frx_effectBlindness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectnightvision">const int frx_effectNightVision</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effecthunger">const int frx_effectHunger</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectweakness">const int frx_effectWeakness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectpoison">const int frx_effectPoison</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectwither">const int frx_effectWither</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effecthealthboost">const int frx_effectHealthBoost</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectabsorption">const int frx_effectAbsorption</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectsaturation">const int frx_effectSaturation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectglowing">const int frx_effectGlowing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectlevitation">const int frx_effectLevitation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectluck">const int frx_effectLuck</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectunluck">const int frx_effectUnluck</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectslowfalling">const int frx_effectSlowFalling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectconduitpower">const int frx_effectConduitPower</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectdolphinsgrace">const int frx_effectDolphinsGrace</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectbadomen">const int frx_effectBadOmen</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectheroofthevillage">const int frx_effectHeroOfTheVillage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_effectdarkness">const int frx_effectDarkness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playereyeinfluid">const int frx_playerEyeInFluid</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playereyeinwater">const int frx_playerEyeInWater</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playereyeinlava">const int frx_playerEyeInLava</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playereyeinsnow">const int frx_playerEyeInSnow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playersneaking">const int frx_playerSneaking</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playerswimming">const int frx_playerSwimming</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playersneakingpose">const int frx_playerSneakingPose</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playerswimmingpose">const int frx_playerSwimmingPose</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playercreative">const int frx_playerCreative</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playerspectator">const int frx_playerSpectator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playerriding">const int frx_playerRiding</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playeronfire">const int frx_playerOnFire</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playerisfreezing">const int frx_playerIsFreezing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playersleeping">const int frx_playerSleeping</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playersprinting">const int frx_playerSprinting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_playerwet">const int frx_playerWet</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_playermood">const float frx_playerMood</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_eyepos">const vec3 frx_eyePos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec2-frx_eyebrightness">const vec2 frx_eyeBrightness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec2-frx_smoothedeyebrightness">const vec2 frx_smoothedEyeBrightness</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sampler.h/">sampler.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vertex.h/">vertex.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../view.h/">view.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../world.h/">world.h</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lib</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/bitwise.glsl/">bitwise.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/color.glsl/">color.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/face.glsl/">face.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/math.glsl/">math.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/sample.glsl/">sample.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Noise</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2d.glsl/">cellular2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2x2.glsl/">cellular2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2x2x2.glsl/">cellular2x2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular3d.glsl/">cellular3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise2d.glsl/">classicnoise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise3d.glsl/">classicnoise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise4d.glsl/">classicnoise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise2d.glsl/">noise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise3d.glsl/">noise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise3dgrad.glsl/">noise3dgrad.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise4d.glsl/">noise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noisecommon.glsl/">noisecommon.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/psrdnoise2d.glsl/">psrdnoise2d.glsl</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Material</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.frag/">default.frag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.vert/">default.vert</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Frex Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Api</li>
+      <li class="breadcrumb-item active">player.h</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="playerh">player.h</h1>
+<hr />
+<p>Specifies the variables and methods available in the
+  FREX shader API to access infomration about the player.</p>
+<p>See FREX Shader API.md for license and general informaiton.</p>
+<hr />
+<h2 id="const-float-frx_effectmodifier"><code>const float frx_effectModifier</code></h2>
+<p>Magnitude of effects that affect vision: night vision, being in fluid, etc.
+  Experimental, likely to change.</p>
+<h2 id="const-float-frx_darknesseffectfactor"><code>const float frx_darknessEffectFactor</code></h2>
+<p>Brightness manipulation factor when player has "Darkness" effect.</p>
+<p>Value is interpolated between 0 for lowest brightness,
+  and 1 for full brightness.</p>
+<p>Note that this factor is pre-applied to lightmap texture.
+  It is meant for custom lighting models or visual effects.</p>
+<h2 id="const-vec4-frx_heldlight"><code>const vec4 frx_heldLight</code></h2>
+<p>Color and magnitude of light source held by player in either hand.
+  RGB are the light color, alpha channel holds the 0-1 magnitude.</p>
+<p>Magnitude 1 currently represents a source that can reach 15 blocks.
+  This scale is subject to change.</p>
+<p>If the player is not holding a light source, all values are zero.</p>
+<h2 id="const-float-frx_heldlightinnerradius"><code>const float frx_heldLightInnerRadius</code></h2>
+<p>A value less than 2PI radians should create a spot light effect.
+  This is the angle of full brightness within the light cone.
+  Attenuation is assumed to be the same as for non-spot lights.</p>
+<h2 id="const-float-frx_heldlightouterradius"><code>const float frx_heldLightOuterRadius</code></h2>
+<p>The angle of reduced brightness around the inner light cone.
+  If greater than frx_heldLightInnerConeAngle should create a
+  fall-off effect around a spot light.
+  Attenuation is assumed to be the same as for non-spot lights.</p>
+<h2 id="const-int-frx_effectspeed"><code>const int frx_effectSpeed</code></h2>
+<p>Player effect indicators.
+ Will equal 1 when player has the given effect.
+ Includes all vanilla player effects as of 1.19</p>
+<h2 id="const-int-frx_effectslowness"><code>const int frx_effectSlowness</code></h2>
+<h2 id="const-int-frx_effecthast"><code>const int frx_effectHast</code></h2>
+<h2 id="const-int-frx_effectminingfatigue"><code>const int frx_effectMiningFatigue</code></h2>
+<h2 id="const-int-frx_effectstrength"><code>const int frx_effectStrength</code></h2>
+<h2 id="const-int-frx_effectinstanthealth"><code>const int frx_effectInstantHealth</code></h2>
+<h2 id="const-int-frx_effectinstantdamage"><code>const int frx_effectInstantDamage</code></h2>
+<h2 id="const-int-frx_effectjumpboost"><code>const int frx_effectJumpBoost</code></h2>
+<h2 id="const-int-frx_effectnausea"><code>const int frx_effectNausea</code></h2>
+<h2 id="const-int-frx_effectregeneration"><code>const int frx_effectRegeneration</code></h2>
+<h2 id="const-int-frx_effectresistance"><code>const int frx_effectResistance</code></h2>
+<h2 id="const-int-frx_effectfireresistance"><code>const int frx_effectFireResistance</code></h2>
+<h2 id="const-int-frx_effectwaterbreathing"><code>const int frx_effectWaterBreathing</code></h2>
+<h2 id="const-int-frx_effectinvisibility"><code>const int frx_effectInvisibility</code></h2>
+<h2 id="const-int-frx_effectblindness"><code>const int frx_effectBlindness</code></h2>
+<h2 id="const-int-frx_effectnightvision"><code>const int frx_effectNightVision</code></h2>
+<h2 id="const-int-frx_effecthunger"><code>const int frx_effectHunger</code></h2>
+<h2 id="const-int-frx_effectweakness"><code>const int frx_effectWeakness</code></h2>
+<h2 id="const-int-frx_effectpoison"><code>const int frx_effectPoison</code></h2>
+<h2 id="const-int-frx_effectwither"><code>const int frx_effectWither</code></h2>
+<h2 id="const-int-frx_effecthealthboost"><code>const int frx_effectHealthBoost</code></h2>
+<h2 id="const-int-frx_effectabsorption"><code>const int frx_effectAbsorption</code></h2>
+<h2 id="const-int-frx_effectsaturation"><code>const int frx_effectSaturation</code></h2>
+<h2 id="const-int-frx_effectglowing"><code>const int frx_effectGlowing</code></h2>
+<h2 id="const-int-frx_effectlevitation"><code>const int frx_effectLevitation</code></h2>
+<h2 id="const-int-frx_effectluck"><code>const int frx_effectLuck</code></h2>
+<h2 id="const-int-frx_effectunluck"><code>const int frx_effectUnluck</code></h2>
+<h2 id="const-int-frx_effectslowfalling"><code>const int frx_effectSlowFalling</code></h2>
+<h2 id="const-int-frx_effectconduitpower"><code>const int frx_effectConduitPower</code></h2>
+<h2 id="const-int-frx_effectdolphinsgrace"><code>const int frx_effectDolphinsGrace</code></h2>
+<h2 id="const-int-frx_effectbadomen"><code>const int frx_effectBadOmen</code></h2>
+<h2 id="const-int-frx_effectheroofthevillage"><code>const int frx_effectHeroOfTheVillage</code></h2>
+<h2 id="const-int-frx_effectdarkness"><code>const int frx_effectDarkness</code></h2>
+<h2 id="const-int-frx_playereyeinfluid"><code>const int frx_playerEyeInFluid</code></h2>
+<p>Player situation indicators.
+ Will equal 1 when the situation is true.</p>
+<h2 id="const-int-frx_playereyeinwater"><code>const int frx_playerEyeInWater</code></h2>
+<h2 id="const-int-frx_playereyeinlava"><code>const int frx_playerEyeInLava</code></h2>
+<h2 id="const-int-frx_playereyeinsnow"><code>const int frx_playerEyeInSnow</code></h2>
+<h2 id="const-int-frx_playersneaking"><code>const int frx_playerSneaking</code></h2>
+<h2 id="const-int-frx_playerswimming"><code>const int frx_playerSwimming</code></h2>
+<h2 id="const-int-frx_playersneakingpose"><code>const int frx_playerSneakingPose</code></h2>
+<h2 id="const-int-frx_playerswimmingpose"><code>const int frx_playerSwimmingPose</code></h2>
+<h2 id="const-int-frx_playercreative"><code>const int frx_playerCreative</code></h2>
+<h2 id="const-int-frx_playerspectator"><code>const int frx_playerSpectator</code></h2>
+<h2 id="const-int-frx_playerriding"><code>const int frx_playerRiding</code></h2>
+<h2 id="const-int-frx_playeronfire"><code>const int frx_playerOnFire</code></h2>
+<h2 id="const-int-frx_playerisfreezing"><code>const int frx_playerIsFreezing</code></h2>
+<h2 id="const-int-frx_playersleeping"><code>const int frx_playerSleeping</code></h2>
+<h2 id="const-int-frx_playersprinting"><code>const int frx_playerSprinting</code></h2>
+<h2 id="const-int-frx_playerwet"><code>const int frx_playerWet</code></h2>
+<h2 id="const-float-frx_playermood"><code>const float frx_playerMood</code></h2>
+<p>Value of timer that triggers "spooky" sounds when player is underground. Range 0-1.</p>
+<h2 id="const-vec3-frx_eyepos"><code>const vec3 frx_eyePos</code></h2>
+<p>Eye position in world coordinates.</p>
+<h2 id="const-vec2-frx_eyebrightness"><code>const vec2 frx_eyeBrightness</code></h2>
+<p>Normalized, linear light level at player/viewer eye position.
+  Zero is no light and 1 is max. No correction for gamma, dimension, etc.
+  Component x is block and y is sky.</p>
+<h2 id="const-vec2-frx_smoothedeyebrightness"><code>const vec2 frx_smoothedEyeBrightness</code></h2>
+<p>Same as frx_eyeBrightness but with exponential smoothing.
+  Optionally, can smooth only decreases, leaving increases instant.
+  Speed &amp; bidirectionality are controlled in pipeline config.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../material.h/" class="btn btn-neutral float-left" title="material.h"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sampler.h/" class="btn btn-neutral float-right" title="sampler.h">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../material.h/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sampler.h/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>color.glsl - Frex Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "color.glsl";
+        var mkdocs_page_input_path = "lib/color.glsl.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Frex Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/accessibility.h/">accessibility.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/fog.h/">fog.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/fragment.h/">fragment.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/header.h/">header.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/material.h/">material.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/player.h/">player.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/sampler.h/">sampler.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/vertex.h/">vertex.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/view.h/">view.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/world.h/">world.h</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lib</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise.glsl/">bitwise.glsl</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">color.glsl</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-frx_gamma-24">Preprocessor: #define FRX_GAMMA 2.4</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-frx_inverse_gamma-10-frx_gamma">Preprocessor: #define FRX_INVERSE_GAMMA (1.0 / FRX_GAMMA)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_fromgammavec4-c">frx_fromGamma(vec4 c)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_togammavec4-c">frx_toGamma(vec4 c)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_fromgammavec3-c">frx_fromGamma(vec3 c)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_togammavec3-c">frx_toGamma(vec3 c)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat3-frx_aces_input_matrix-mat3-vec3-0-5-9-7-1-9-0-0-7-6-0-0-0-0-2-8-4-0-vec3-0-3-5-4-5-8-0-9-0-8-3-4-0-1-3-3-8-3-vec3-0-0-4-8-2-3-0-0-1-5-6-6-0-8-3-7-7-7">const mat3 FRX_ACES_INPUT_MATRIX = mat3 ( vec3 ( 0 . 5 9 7 1 9 , 0 . 0 7 6 0 0 , 0 . 0 2 8 4 0 ) , vec3 ( 0 . 3 5 4 5 8 , 0 . 9 0 8 3 4 , 0 . 1 3 3 8 3 ) , vec3 ( 0 . 0 4 8 2 3 , 0 . 0 1 5 6 6 , 0 . 8 3 7 7 7 ) )</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat3-frx_aces_output_matrix-mat3-vec3-1-6-0-4-7-5-0-1-0-2-0-8-0-0-0-3-2-7-vec3-0-5-3-1-0-8-1-1-0-8-1-3-0-0-7-2-7-6-vec3-0-0-7-3-6-7-0-0-0-6-0-5-1-0-7-6-0-2">const mat3 FRX_ACES_OUTPUT_MATRIX = mat3 ( vec3 ( 1 . 6 0 4 7 5 , -0 . 1 0 2 0 8 , -0 . 0 0 3 2 7 ) , vec3 ( -0 . 5 3 1 0 8 , 1 . 1 0 8 1 3 , -0 . 0 7 2 7 6 ) , vec3 ( -0 . 0 7 3 6 7 , -0 . 0 0 6 0 5 , 1 . 0 7 6 0 2 ) )</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_rrt_and_odtf_fitvec3-v">FRX_RRT_AND_ODTF_FIT(vec3 v)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_tonemapvec3-color">frx_toneMap(vec3 color)</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../face.glsl/">face.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../math.glsl/">math.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sample.glsl/">sample.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Noise</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2d.glsl/">cellular2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2x2.glsl/">cellular2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2x2x2.glsl/">cellular2x2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular3d.glsl/">cellular3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise2d.glsl/">classicnoise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise3d.glsl/">classicnoise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise4d.glsl/">classicnoise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise2d.glsl/">noise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise3d.glsl/">noise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise3dgrad.glsl/">noise3dgrad.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise4d.glsl/">noise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noisecommon.glsl/">noisecommon.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/psrdnoise2d.glsl/">psrdnoise2d.glsl</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Material</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.frag/">default.frag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.vert/">default.vert</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Frex Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lib</li>
+      <li class="breadcrumb-item active">color.glsl</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="colorglsl">color.glsl</h1>
+<hr />
+<p>frex:shaders/lib/color.glsl
+Common color processing functions.
+Portions taken from Wisdom Shaders by Cheng (Bob) Cao, Apache 2.0 license
+https://github.com/bobcao3/Wisdom-Shaders</p>
+<hr />
+<h2 id="preprocessor-define-frx_gamma-24">Preprocessor: <code>#define FRX_GAMMA 2.4</code></h2>
+<h2 id="preprocessor-define-frx_inverse_gamma-10-frx_gamma">Preprocessor: <code>#define FRX_INVERSE_GAMMA (1.0 / FRX_GAMMA)</code></h2>
+<h2 id="frx_fromgammavec4-c"><code>frx_fromGamma(vec4 c)</code></h2>
+<pre><code class="language-glsl">{
+    return pow(c, vec4(FRX_GAMMA));
+}
+</code></pre>
+<h2 id="frx_togammavec4-c"><code>frx_toGamma(vec4 c)</code></h2>
+<pre><code class="language-glsl">{
+    return pow(c, vec4(FRX_INVERSE_GAMMA));
+}
+</code></pre>
+<h2 id="frx_fromgammavec3-c"><code>frx_fromGamma(vec3 c)</code></h2>
+<pre><code class="language-glsl">{
+    return pow(c, vec3(FRX_GAMMA));
+}
+</code></pre>
+<h2 id="frx_togammavec3-c"><code>frx_toGamma(vec3 c)</code></h2>
+<pre><code class="language-glsl">{
+    return pow(c, vec3(FRX_INVERSE_GAMMA));
+}
+</code></pre>
+<h2 id="const-mat3-frx_aces_input_matrix-mat3-vec3-0-5-9-7-1-9-0-0-7-6-0-0-0-0-2-8-4-0-vec3-0-3-5-4-5-8-0-9-0-8-3-4-0-1-3-3-8-3-vec3-0-0-4-8-2-3-0-0-1-5-6-6-0-8-3-7-7-7"><code>const mat3 FRX_ACES_INPUT_MATRIX = mat3 ( vec3 ( 0 . 5 9 7 1 9 , 0 . 0 7 6 0 0 , 0 . 0 2 8 4 0 ) , vec3 ( 0 . 3 5 4 5 8 , 0 . 9 0 8 3 4 , 0 . 1 3 3 8 3 ) , vec3 ( 0 . 0 4 8 2 3 , 0 . 0 1 5 6 6 , 0 . 8 3 7 7 7 ) )</code></h2>
+<p>float frx_luma(vec3 c) {
+    return dot(c, vec3(0.2126, 0.7152, 0.0722));
+}</p>
+<h2 id="const-mat3-frx_aces_output_matrix-mat3-vec3-1-6-0-4-7-5-0-1-0-2-0-8-0-0-0-3-2-7-vec3-0-5-3-1-0-8-1-1-0-8-1-3-0-0-7-2-7-6-vec3-0-0-7-3-6-7-0-0-0-6-0-5-1-0-7-6-0-2"><code>const mat3 FRX_ACES_OUTPUT_MATRIX = mat3 ( vec3 ( 1 . 6 0 4 7 5 , -0 . 1 0 2 0 8 , -0 . 0 0 3 2 7 ) , vec3 ( -0 . 5 3 1 0 8 , 1 . 1 0 8 1 3 , -0 . 0 7 2 7 6 ) , vec3 ( -0 . 0 7 3 6 7 , -0 . 0 0 6 0 5 , 1 . 0 7 6 0 2 ) )</code></h2>
+<p>ODT_SAT =&gt; XYZ =&gt; D60_2_D65 =&gt; sRGB</p>
+<h2 id="frx_rrt_and_odtf_fitvec3-v"><code>FRX_RRT_AND_ODTF_FIT(vec3 v)</code></h2>
+<pre><code class="language-glsl">{
+    vec3 a = v * (v + 0.0245786f) - 0.000090537f;
+    vec3 b = v * (0.983729f * v + 0.4329510f) + 0.238081f;
+    return a / b;
+}
+</code></pre>
+<h2 id="frx_tonemapvec3-color"><code>frx_toneMap(vec3 color)</code></h2>
+<pre><code class="language-glsl">{
+    color = FRX_ACES_INPUT_MATRIX * color;
+    color = FRX_RRT_AND_ODTF_FIT(color);
+    return FRX_ACES_OUTPUT_MATRIX * color;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../bitwise.glsl/" class="btn btn-neutral float-left" title="bitwise.glsl"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../face.glsl/" class="btn btn-neutral float-right" title="face.glsl">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../bitwise.glsl/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../face.glsl/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

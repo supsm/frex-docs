@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>world.h - Frex Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "world.h";
+        var mkdocs_page_input_path = "api/world.h.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Frex Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../accessibility.h/">accessibility.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fog.h/">fog.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fragment.h/">fragment.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../header.h/">header.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material.h/">material.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../player.h/">player.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sampler.h/">sampler.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vertex.h/">vertex.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../view.h/">view.h</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">world.h</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_renderseconds">const float frx_renderSeconds</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-uint-frx_renderframes">const uint frx_renderFrames</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_worldday">const float frx_worldDay</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_worldtime">const float frx_worldTime</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_moonsize">const float frx_moonSize</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_skyangleradians">const float frx_skyAngleRadians</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_skylightvector">const vec3 frx_skyLightVector</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_skylightcolor">const vec3 frx_skyLightColor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_skylightilluminance">const float frx_skyLightIlluminance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_skylightatmosphericcolor">const vec3 frx_skyLightAtmosphericColor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_skylighttransitionfactor">const float frx_skyLightTransitionFactor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_skyflashstrength">const float frx_skyFlashStrength</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_ambientintensity">const float frx_ambientIntensity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec4-frx_emissivecolor">const vec4 frx_emissiveColor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_raingradient">const float frx_rainGradient</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_thundergradient">const float frx_thunderGradient</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_smoothedraingradient">const float frx_smoothedRainGradient</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_smoothedthundergradient">const float frx_smoothedThunderGradient</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_vanillaclearcolor">const vec3 frx_vanillaClearColor</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_worldhasskylight">const int frx_worldHasSkylight</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_worldisoverworld">const int frx_worldIsOverworld</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_worldisnether">const int frx_worldIsNether</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_worldisend">const int frx_worldIsEnd</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_worldisraining">const int frx_worldIsRaining</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_worldisthundering">const int frx_worldIsThundering</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_worldisskydarkened">const int frx_worldIsSkyDarkened</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_worldismoonlit">const int frx_worldIsMoonlit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_conditiontestint-conditionindex-prototype">frx_conditionTest(int conditionIndex) [PROTOTYPE]</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lib</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/bitwise.glsl/">bitwise.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/color.glsl/">color.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/face.glsl/">face.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/math.glsl/">math.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/sample.glsl/">sample.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Noise</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2d.glsl/">cellular2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2x2.glsl/">cellular2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2x2x2.glsl/">cellular2x2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular3d.glsl/">cellular3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise2d.glsl/">classicnoise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise3d.glsl/">classicnoise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise4d.glsl/">classicnoise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise2d.glsl/">noise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise3d.glsl/">noise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise3dgrad.glsl/">noise3dgrad.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise4d.glsl/">noise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noisecommon.glsl/">noisecommon.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/psrdnoise2d.glsl/">psrdnoise2d.glsl</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Material</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.frag/">default.frag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.vert/">default.vert</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Frex Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Api</li>
+      <li class="breadcrumb-item active">world.h</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="worldh">world.h</h1>
+<hr />
+<p>Specifies the variables and methods available in the FREX shader API
+  for access to world information.</p>
+<p>See FREX Shader API.md for license and general informaiton.</p>
+<hr />
+<h2 id="const-float-frx_renderseconds"><code>const float frx_renderSeconds</code></h2>
+<p>The number of seconds this world has been rendering since the last render
+  reload, including fractional seconds.</p>
+<p>Use this for effects that need a smoothly increasing counter.</p>
+<h2 id="const-uint-frx_renderframes"><code>const uint frx_renderFrames</code></h2>
+<p>The number of frames this world has been rendering since the last render
+  reload.</p>
+<p>Use this for effects that need a discrete increasing counter.</p>
+<h2 id="const-float-frx_worldday"><code>const float frx_worldDay</code></h2>
+<p>Day of the currently rendering world - integer portion only.
+  This is the apparent day, not the elapsed play time, which can
+  be different due to sleeping, /set time, etc.</p>
+<p>Use this for effects that depend somehow on the season or age of the world.
+  Received from server - may not be smoothly incremented.</p>
+<h2 id="const-float-frx_worldtime"><code>const float frx_worldTime</code></h2>
+<p>Time of the currently rendering world with values 0 to 1.
+  Zero represents the morning / start of the day cycle in Minecraft.</p>
+<p>Use this for effects that depend on the time of day.
+  Received from server - may not be smoothly incremented.</p>
+<h2 id="const-float-frx_moonsize"><code>const float frx_moonSize</code></h2>
+<p>Size of the moon the currently rendering world. Values are 0 to 1.</p>
+<h2 id="const-float-frx_skyangleradians"><code>const float frx_skyAngleRadians</code></h2>
+<p>Rotation of the sky dome as part of the day/night cycle.
+  Will not advance if doDaylightCycle game rule is turned off.</p>
+<p>In vanilla dimensions, zero represents the condition at
+  tick = 0 (just after sunrise) and rotation is around the Z axis.</p>
+<p>Will be zero at noon, (world time = 6000) but vanilla adjusts the progression
+  so that the sun is slightly over the horizon at world time = 0 and
+  also takes its time setting as well.</p>
+<h2 id="const-vec3-frx_skylightvector"><code>const vec3 frx_skyLightVector</code></h2>
+<p>Normalized vector of the primary sky light (the sun or moon) used for
+  shadow mapping and useful for direct sky lighting. Points towards the skylight.
+  Will not advance if doDaylightCycle game rule is turned off.</p>
+<p>See notes on frx_skyAngleRadians() regarding asymmetry.</p>
+<h2 id="const-vec3-frx_skylightcolor"><code>const vec3 frx_skyLightColor</code></h2>
+<p>Linear RGB color of the most prevalent sky light - the one that is
+  used for shadow map and intended for directional lighting.</p>
+<p>Does not vary by time of day or for atmospheric effects but can vary
+  based on season or other celestial variables for modded dimensions
+  or if configured for vanilla dimensions.</p>
+<p>Not adjusted for night vision or any player effect. Does not account
+  for underwater or any other occlusion.
+  Not adjusted for rain, thunder, cloud cover, or lightning.</p>
+<p>Use the FRX_WORLD_IS_MOONLIT flag to query if this is sun or moonlight.
+  Will be unit vector if the world has no skylight.</p>
+<h2 id="const-float-frx_skylightilluminance"><code>const float frx_skyLightIlluminance</code></h2>
+<p>Measures intensity of direct sky light in lumens/square meter. (lux)
+  Does not vary by time of day or for atmospheric effects but can vary
+  based on season or other celestial variables for modded dimensions
+  or if configured for vanilla dimensions. Also varies by moon phase
+  for moonlight if that feature is enabled.</p>
+<p>Not adjusted for night vision or any player effect. Does not account
+  for underwater or any other occlusion.
+  Not adjusted for rain, thunder, cloud cover, or lightning.</p>
+<p>FREX pegs vanilla sunlight illuminace at 32,000 lux.  Value could be
+  different for modded dimensions or if configured via resource pack.</p>
+<p>Moonlight in Vanilla appears to be more intense than in the real world.
+  If configured to mimic vanilla, moonlight will be ~100lux but
+  can be very small or zero (or perhaps higher) in other configurations.</p>
+<p>Values assume an idealized, non-specific reference white light.
+  When multiplied by frx_skyLightColor() the effective luminance
+  will be somewhat less, but shaders are not expected to compensate
+  for this. Most celestial light sources are some flavor of white,
+  and stongly-colored lights can be handled by adjusting the illuminance
+  in the mod/pack configuration if needed.</p>
+<p>Effective illuminance will also be reduced if light is multiplied by
+  frx_skyLightAtmosphericColor() but that should not require any
+  compensation because it mimics the scattering of light. Pipelines
+  that strive for physical realism will not use that factor anyway.</p>
+<p>Use the FRX_WORLD_IS_MOONLIT flag to query if this is sun or moonlight.
+  Will be zero if the world has no skylight.</p>
+<h2 id="const-vec3-frx_skylightatmosphericcolor"><code>const vec3 frx_skyLightAtmosphericColor</code></h2>
+<p>Linear RGB color modifier for the most prevalent sky light - the one
+  that is used for shadow map and intended for directional lighting.</p>
+<p>Also adjusted by time of day to account for atmospheric effects.
+  Pipelines that model atmospheric scattering will not want this.</p>
+<p>Not adjusted for weather, lightning, night vision or any player effect.
+  Does not account for underwater or any other occlusion.</p>
+<p>Use the FRX_WORLD_IS_MOONLIT flag to query if this is sun or moonlight.
+  Will be unit vector if the world has no skylight.</p>
+<h2 id="const-float-frx_skylighttransitionfactor"><code>const float frx_skyLightTransitionFactor</code></h2>
+<p>Smoothing factor to help with the transition from sun to/from moon light.</p>
+<p>Ramps down to zero down as the moon set and then back up to
+  one as the sun rises. In future, will be configurable by dimension.</p>
+<p>Use the FRX_WORLD_IS_MOONLIT flag to query if this is sun or moonlight.
+  Will be 1.0 (and mean nothing) if the world has no skylight.</p>
+<h2 id="const-float-frx_skyflashstrength"><code>const float frx_skyFlashStrength</code></h2>
+<p>Strength of sky flashing during a lightning strike.</p>
+<p>Forms a reverse sawtooth pattern with random peaks over time.
+  UNCLAMPED, but meant to be clamped to values between 0 and 1.
+  HDR implementation might want to use values above 1 to represent stronger flashes.</p>
+<p>Locked to 0 if Accessibility Setting &gt; Hide Lightning Flashes is ON.</p>
+<h2 id="const-float-frx_ambientintensity"><code>const float frx_ambientIntensity</code></h2>
+<p>Ambient light intensity of the currently rendering world.
+  Zero represents the morning / start of the day cycle in Minecraft.</p>
+<p>Experimental, likely to change.</p>
+<h2 id="const-vec4-frx_emissivecolor"><code>const vec4 frx_emissiveColor</code></h2>
+<p>Gamma-corrected max light color from lightmap texture.
+  Updated whenever lightmap texture is updated.</p>
+<p>Multiply emissive outputs by this to be consistent
+  with the game's brightness settings.</p>
+<p>Note that Canvas normally handles this automatically.
+  It is exposed for exotic use cases.</p>
+<h2 id="const-float-frx_raingradient"><code>const float frx_rainGradient</code></h2>
+<p>MC rain strength. Values 0 to 1.</p>
+<h2 id="const-float-frx_thundergradient"><code>const float frx_thunderGradient</code></h2>
+<p>MC thunder strength. Values 0 to 1.</p>
+<h2 id="const-float-frx_smoothedraingradient"><code>const float frx_smoothedRainGradient</code></h2>
+<p>Same as frx_rainGradient but with exponential smoothing.
+  Speed is controlled in pipeline config.</p>
+<h2 id="const-float-frx_smoothedthundergradient"><code>const float frx_smoothedThunderGradient</code></h2>
+<p>Same as frx_thunderGradient but with exponential smoothing.
+  Speed is controlled in pipeline config.</p>
+<h2 id="const-vec3-frx_vanillaclearcolor"><code>const vec3 frx_vanillaClearColor</code></h2>
+<p>The background clear color as computed by vanilla logic. Incorporates
+  many different factors.  For use by pipelines that may want to modify
+  and do their own clearing operations. Pipelines can disable the vanilla
+  clear pass in pipeline config.</p>
+<p>Material shader authors note: this may not be the actual clear color used
+  by the in-effect pipeline. (It might not clear with a single color at all!)</p>
+<h2 id="const-int-frx_worldhasskylight"><code>const int frx_worldHasSkylight</code></h2>
+<p>True when the currently rendering world has a sky with a light source. Zero otherwise.</p>
+<h2 id="const-int-frx_worldisoverworld"><code>const int frx_worldIsOverworld</code></h2>
+<p>Equals 1 when the currently rendering world is the Overworld. Zero otherwise.</p>
+<h2 id="const-int-frx_worldisnether"><code>const int frx_worldIsNether</code></h2>
+<p>Equals 1 when the currently rendering world is the Nether. Zero otherwise.</p>
+<h2 id="const-int-frx_worldisend"><code>const int frx_worldIsEnd</code></h2>
+<p>Equals 1 when the currently rendering world is the End. Zero otherwise.</p>
+<h2 id="const-int-frx_worldisraining"><code>const int frx_worldIsRaining</code></h2>
+<p>Equals 1 when world.isRaining() is true for the currently rendering world.</p>
+<h2 id="const-int-frx_worldisthundering"><code>const int frx_worldIsThundering</code></h2>
+<p>Bet you can guess.</p>
+<h2 id="const-int-frx_worldisskydarkened"><code>const int frx_worldIsSkyDarkened</code></h2>
+<p>Equals 1 when world.getSkyProperties().isDarkened() is true for the currently rendering world.
+  Zero otherwise. </p>
+<p>True (==1) in Nether - indicates diffuse lighting bottom face is same as top, not as bright.</p>
+<h2 id="const-int-frx_worldismoonlit"><code>const int frx_worldIsMoonlit</code></h2>
+<p>Equals 1 when the sky light modeled by frx_skyLightStrength and frx_skyLightVector is the moon. Zero otherwise.</p>
+<h2 id="frx_conditiontestint-conditionindex-prototype"><code>frx_conditionTest(int conditionIndex)</code> [PROTOTYPE]</h2>
+<p>Returns 1 when the condition is true, zero otherwise.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../view.h/" class="btn btn-neutral float-left" title="view.h"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../lib/bitwise.glsl/" class="btn btn-neutral float-right" title="bitwise.glsl">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../view.h/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../lib/bitwise.glsl/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

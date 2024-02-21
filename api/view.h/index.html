@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>view.h - Frex Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "view.h";
+        var mkdocs_page_input_path = "api/view.h.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Frex Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../accessibility.h/">accessibility.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fog.h/">fog.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fragment.h/">fragment.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../header.h/">header.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../material.h/">material.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../player.h/">player.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sampler.h/">sampler.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vertex.h/">vertex.h</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">view.h</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_cameraview">const vec3 frx_cameraView</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_entityview">const vec3 frx_entityView</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_camerapos">const vec3 frx_cameraPos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec3-frx_lastcamerapos">const vec3 frx_lastCameraPos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec4-frx_modeltoworld">const vec4 frx_modelToWorld</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-vec4-frx_modeltocamera">const vec4 frx_modelToCamera</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_modelorigincamera">const bool frx_modelOriginCamera</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_modeloriginregion">const bool frx_modelOriginRegion</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_modeloriginscreen">const bool frx_modelOriginScreen</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_ishand">const bool frx_isHand</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_isgui">const bool frx_isGui</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_guiviewprojectionmatrix">const mat4 frx_guiViewProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat3-frx_normalmodelmatrix">const mat3 frx_normalModelMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_viewmatrix">const mat4 frx_viewMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_inverseviewmatrix">const mat4 frx_inverseViewMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_lastviewmatrix">const mat4 frx_lastViewMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_projectionmatrix">const mat4 frx_projectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_lastprojectionmatrix">const mat4 frx_lastProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_inverseprojectionmatrix">const mat4 frx_inverseProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_viewprojectionmatrix">const mat4 frx_viewProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_inverseviewprojectionmatrix">const mat4 frx_inverseViewProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_lastviewprojectionmatrix">const mat4 frx_lastViewProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_cleanprojectionmatrix">const mat4 frx_cleanProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_lastcleanprojectionmatrix">const mat4 frx_lastCleanProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_inversecleanprojectionmatrix">const mat4 frx_inverseCleanProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_cleanviewprojectionmatrix">const mat4 frx_cleanViewProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_inversecleanviewprojectionmatrix">const mat4 frx_inverseCleanViewProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_lastcleanviewprojectionmatrix">const mat4 frx_lastCleanViewProjectionMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_shadowviewmatrix">const mat4 frx_shadowViewMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-mat4-frx_inverseshadowviewmatrix">const mat4 frx_inverseShadowViewMatrix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_shadowprojectionmatrixint-index-prototype">frx_shadowProjectionMatrix(int index) [PROTOTYPE]</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_shadowviewprojectionmatrixint-index-prototype">frx_shadowViewProjectionMatrix(int index) [PROTOTYPE]</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_shadowcenterint-index-prototype">frx_shadowCenter(int index) [PROTOTYPE]</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_viewwidth">const float frx_viewWidth</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_viewheight">const float frx_viewHeight</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_viewaspectratio">const float frx_viewAspectRatio</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_viewbrightness">const float frx_viewBrightness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_rendertargetsolid">const bool frx_renderTargetSolid</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_rendertargettranslucent">const bool frx_renderTargetTranslucent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_rendertargetparticles">const bool frx_renderTargetParticles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-bool-frx_rendertargetentity">const bool frx_renderTargetEntity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-float-frx_viewdistance">const float frx_viewDistance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_camerainfluid">const int frx_cameraInFluid</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_camerainwater">const int frx_cameraInWater</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_camerainlava">const int frx_cameraInLava</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#const-int-frx_camerainsnow">const int frx_cameraInSnow</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../world.h/">world.h</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lib</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/bitwise.glsl/">bitwise.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/color.glsl/">color.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/face.glsl/">face.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/math.glsl/">math.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../lib/sample.glsl/">sample.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Noise</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2d.glsl/">cellular2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2x2.glsl/">cellular2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular2x2x2.glsl/">cellular2x2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/cellular3d.glsl/">cellular3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise2d.glsl/">classicnoise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise3d.glsl/">classicnoise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/classicnoise4d.glsl/">classicnoise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise2d.glsl/">noise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise3d.glsl/">noise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise3dgrad.glsl/">noise3dgrad.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noise4d.glsl/">noise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/noisecommon.glsl/">noisecommon.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../lib/noise/psrdnoise2d.glsl/">psrdnoise2d.glsl</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Material</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.frag/">default.frag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.vert/">default.vert</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Frex Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Api</li>
+      <li class="breadcrumb-item active">view.h</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="viewh">view.h</h1>
+<hr />
+<p>Specifies the variables and methods available in the FREX shader API
+  for coordinate spaces, transformations and camera information.</p>
+<p>See FREX Shader API.md for license and general informaiton.</p>
+<hr />
+<h2 id="const-vec3-frx_cameraview"><code>const vec3 frx_cameraView</code></h2>
+<p>The view vector of the current camera in world space, normalised.</p>
+<h2 id="const-vec3-frx_entityview"><code>const vec3 frx_entityView</code></h2>
+<p>The view vector of the current entity focused by the camera, in world space, normalised.</p>
+<h2 id="const-vec3-frx_camerapos"><code>const vec3 frx_cameraPos</code></h2>
+<p>Current position of the camera in world space.</p>
+<h2 id="const-vec3-frx_lastcamerapos"><code>const vec3 frx_lastCameraPos</code></h2>
+<p>Prior-frame position of the camera in world space.</p>
+<h2 id="const-vec4-frx_modeltoworld"><code>const vec4 frx_modelToWorld</code></h2>
+<p>Translation from inbound model coordinates to world space. Conventionally
+  this is handled with a matrix, but because inbound coordinates outside of
+  overlay and GUI rendering are always world-aligned, this can avoid a
+  matrix multiplication.</p>
+<p>When frx_modelOriginType() == MODEL_ORIGIN_CAMERA, inbound coordinates are
+  relative to the camera position and this will equal frx_cameraPos().</p>
+<p>In overlay rendering, when frx_modelOriginType() == MODEL_ORIGIN_SCREEN, this
+  will always be zero.  The fourth component is always zero and included for
+  ease of use.</p>
+<h2 id="const-vec4-frx_modeltocamera"><code>const vec4 frx_modelToCamera</code></h2>
+<p>Translation from in-bound model coordinates to view space. Conventionally
+  this is handled with a matrix, but because inbound coordinates outside of
+  overlay and GUI rendering are always world-algined, this can avoid a
+  matrix multiplication.</p>
+<p>When frx_modelOriginCemera == 1, inbound coordinates are
+  already relative to the camera position and this will always be zero.</p>
+<p>In overlay rendering, when frx_modelOriginType() == MODEL_ORIGIN_SCREEN, this
+  will always be zero.  The fourth component is always zero and included for
+  ease of use.</p>
+<h2 id="const-bool-frx_modelorigincamera"><code>const bool frx_modelOriginCamera</code></h2>
+<p>When true, vertex coordinates are relative to the camera position.
+  Coordinates and normals are unrotated and frx_modelToWorld holds the camera position.</p>
+<p>Mutually exclusive with frx_modelOriginScreen and frx_modelOriginRegion.</p>
+<h2 id="const-bool-frx_modeloriginregion"><code>const bool frx_modelOriginRegion</code></h2>
+<p>When true, vertex coordinates are relative are relative to the origin of a
+  "cluster" of world render regions. Coordinates and normals are unrotated and
+  frx_modelToWorld holds the cluster origin.</p>
+<p>Mutually exclusive with frx_modelOriginScreen and frx_modelOriginCamera.</p>
+<h2 id="const-bool-frx_modeloriginscreen"><code>const bool frx_modelOriginScreen</code></h2>
+<p>When true, vertex coordinates are relative to the screen and no transformations
+  should be applied. Intended for Hand//GUI rendering.</p>
+<p>Mutually exclusive with frx_modelOriginCamera and frx_modelOriginRegion.</p>
+<h2 id="const-bool-frx_ishand"><code>const bool frx_isHand</code></h2>
+<p>True when rendering hand.</p>
+<h2 id="const-bool-frx_isgui"><code>const bool frx_isGui</code></h2>
+<p>True when rendering GUI.</p>
+<h2 id="const-mat4-frx_guiviewprojectionmatrix"><code>const mat4 frx_guiViewProjectionMatrix</code></h2>
+<h2 id="const-mat3-frx_normalmodelmatrix"><code>const mat3 frx_normalModelMatrix</code></h2>
+<p>Converts camera/world space normals to view space.
+  Incoming vertex normals are always in camera/world space.</p>
+<h2 id="const-mat4-frx_viewmatrix"><code>const mat4 frx_viewMatrix</code></h2>
+<h2 id="const-mat4-frx_inverseviewmatrix"><code>const mat4 frx_inverseViewMatrix</code></h2>
+<h2 id="const-mat4-frx_lastviewmatrix"><code>const mat4 frx_lastViewMatrix</code></h2>
+<h2 id="const-mat4-frx_projectionmatrix"><code>const mat4 frx_projectionMatrix</code></h2>
+<h2 id="const-mat4-frx_lastprojectionmatrix"><code>const mat4 frx_lastProjectionMatrix</code></h2>
+<h2 id="const-mat4-frx_inverseprojectionmatrix"><code>const mat4 frx_inverseProjectionMatrix</code></h2>
+<h2 id="const-mat4-frx_viewprojectionmatrix"><code>const mat4 frx_viewProjectionMatrix</code></h2>
+<h2 id="const-mat4-frx_inverseviewprojectionmatrix"><code>const mat4 frx_inverseViewProjectionMatrix</code></h2>
+<h2 id="const-mat4-frx_lastviewprojectionmatrix"><code>const mat4 frx_lastViewProjectionMatrix</code></h2>
+<h2 id="const-mat4-frx_cleanprojectionmatrix"><code>const mat4 frx_cleanProjectionMatrix</code></h2>
+<p>No view bobbing or other effects that alter projection</p>
+<h2 id="const-mat4-frx_lastcleanprojectionmatrix"><code>const mat4 frx_lastCleanProjectionMatrix</code></h2>
+<p>No view bobbing or other effects that alter projection</p>
+<h2 id="const-mat4-frx_inversecleanprojectionmatrix"><code>const mat4 frx_inverseCleanProjectionMatrix</code></h2>
+<p>No view bobbing or other effects that alter projection</p>
+<h2 id="const-mat4-frx_cleanviewprojectionmatrix"><code>const mat4 frx_cleanViewProjectionMatrix</code></h2>
+<p>No view bobbing or other effects that alter projection</p>
+<h2 id="const-mat4-frx_inversecleanviewprojectionmatrix"><code>const mat4 frx_inverseCleanViewProjectionMatrix</code></h2>
+<p>No view bobbing or other effects that alter projection</p>
+<h2 id="const-mat4-frx_lastcleanviewprojectionmatrix"><code>const mat4 frx_lastCleanViewProjectionMatrix</code></h2>
+<p>No view bobbing or other effects that alter projection</p>
+<h2 id="const-mat4-frx_shadowviewmatrix"><code>const mat4 frx_shadowViewMatrix</code></h2>
+<h2 id="const-mat4-frx_inverseshadowviewmatrix"><code>const mat4 frx_inverseShadowViewMatrix</code></h2>
+<h2 id="frx_shadowprojectionmatrixint-index-prototype"><code>frx_shadowProjectionMatrix(int index)</code> [PROTOTYPE]</h2>
+<p>Orthogonal projection matrix on light space for given cascade index 0-3.</p>
+<h2 id="frx_shadowviewprojectionmatrixint-index-prototype"><code>frx_shadowViewProjectionMatrix(int index)</code> [PROTOTYPE]</h2>
+<p>Combined lightspace view and orthogonal projection for given cascade index 0-3.</p>
+<h2 id="frx_shadowcenterint-index-prototype"><code>frx_shadowCenter(int index)</code> [PROTOTYPE]</h2>
+<p>Center and radius of other projection in light space for given cascade index 0-3.</p>
+<h2 id="const-float-frx_viewwidth"><code>const float frx_viewWidth</code></h2>
+<p>Framebuffer width, in pixels.</p>
+<h2 id="const-float-frx_viewheight"><code>const float frx_viewHeight</code></h2>
+<p>Framebuffer height, in pixels.</p>
+<h2 id="const-float-frx_viewaspectratio"><code>const float frx_viewAspectRatio</code></h2>
+<p>Framebuffer width / height.</p>
+<h2 id="const-float-frx_viewbrightness"><code>const float frx_viewBrightness</code></h2>
+<p>User-configured brightness from game options.
+  Values 0.0 to 1.0, with 1.0 being max brightness.</p>
+<h2 id="const-bool-frx_rendertargetsolid"><code>const bool frx_renderTargetSolid</code></h2>
+<p>When == 1, shader is targetting the solid-pass framebuffer.
+  Mutually exclusive with all other frx_renderTarget_ variables.</p>
+<h2 id="const-bool-frx_rendertargettranslucent"><code>const bool frx_renderTargetTranslucent</code></h2>
+<p>When == 1, shader is targetting the translucent-pass framebuffer for terrain.
+  Mutually exclusive with all other frx_renderTarget_ variables.</p>
+<h2 id="const-bool-frx_rendertargetparticles"><code>const bool frx_renderTargetParticles</code></h2>
+<p>When == 1, shader is targetting the translucent-pass framebuffer for particles.
+  Mutually exclusive with all other frx_renderTarget_ variables.</p>
+<h2 id="const-bool-frx_rendertargetentity"><code>const bool frx_renderTargetEntity</code></h2>
+<p>When == 1, shader is targetting the translucent-pass framebuffer for entities.
+  Mutually exclusive with all other frx_renderTarget_ variables.</p>
+<h2 id="const-float-frx_viewdistance"><code>const float frx_viewDistance</code></h2>
+<p>Currently configured terrain view distance, in blocks.</p>
+<h2 id="const-int-frx_camerainfluid"><code>const int frx_cameraInFluid</code></h2>
+<p>Returns 1 when camera is in fluid. Zero otherwise.</p>
+<h2 id="const-int-frx_camerainwater"><code>const int frx_cameraInWater</code></h2>
+<p>Returns 1 when camera is in water. Zero otherwise.</p>
+<h2 id="const-int-frx_camerainlava"><code>const int frx_cameraInLava</code></h2>
+<p>Returns 1 when camera is in lava. Zero otherwise.</p>
+<h2 id="const-int-frx_camerainsnow"><code>const int frx_cameraInSnow</code></h2>
+<p>Returns 1 when camera is in powdered snow. Zero otherwise.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../vertex.h/" class="btn btn-neutral float-left" title="vertex.h"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../world.h/" class="btn btn-neutral float-right" title="world.h">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../vertex.h/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../world.h/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

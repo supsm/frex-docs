@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>face.glsl - Frex Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "face.glsl";
+        var mkdocs_page_input_path = "lib/face.glsl.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Frex Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Api</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/accessibility.h/">accessibility.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/fog.h/">fog.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/fragment.h/">fragment.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/header.h/">header.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/material.h/">material.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/player.h/">player.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/sampler.h/">sampler.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/vertex.h/">vertex.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/view.h/">view.h</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/world.h/">world.h</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lib</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bitwise.glsl/">bitwise.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../color.glsl/">color.glsl</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">face.glsl</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-face_down-0">Preprocessor: #define  FACE_DOWN  0</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-face_up-1">Preprocessor: #define  FACE_UP    1</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-face_north-2">Preprocessor: #define  FACE_NORTH 2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-face_south-3">Preprocessor: #define  FACE_SOUTH 3</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-face_west-4">Preprocessor: #define  FACE_WEST  4</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preprocessor-define-face_east-5">Preprocessor: #define  FACE_EAST  5</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unknown-statement-const-mat3-6-frx_uv_matrix-mat3-6-mat3-1-0-0-0-0-0-0-0-0-0-0-0-0-0-1-0-0-0-mat3-1-0-0-0-0-0-0-0-0-0-0-0-0-0-1-0-0-0-mat3-1-0-0-0-0-0-0-0-1-0-0-0-0-0-0-0-0-0-mat3-1-0-0-0-0-0-0-0-1-0-0-0-0-0-0-0-0-0-mat3-0-0-0-0-0-0-0-0-1-0-0-0-1-0-0-0-0-0-mat3-0-0-0-0-0-0-0-0-1-0-0-0-1-0-0-0-0-0">UNKNOWN STATEMENT const mat3 [ 6 ] FRX_UV_MATRIX = mat3 [ 6 ] ( mat3 ( 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 ) , mat3 ( 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 ) , mat3 ( 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 ) , mat3 ( 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 ) , mat3 ( 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 0 . 0 ) , mat3 ( 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 0 . 0 ) ) ;</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_facevec3-normal">frx_face(vec3 normal)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_faceuvvec3-pos-vec3-normal">frx_faceUv(vec3 pos, vec3 normal)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#frx_faceuvvec3-pos-int-face">frx_faceUv(vec3 pos, int face)</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../math.glsl/">math.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sample.glsl/">sample.glsl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Noise</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2d.glsl/">cellular2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2x2.glsl/">cellular2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular2x2x2.glsl/">cellular2x2x2.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/cellular3d.glsl/">cellular3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise2d.glsl/">classicnoise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise3d.glsl/">classicnoise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/classicnoise4d.glsl/">classicnoise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise2d.glsl/">noise2d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise3d.glsl/">noise3d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise3dgrad.glsl/">noise3dgrad.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noise4d.glsl/">noise4d.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/noisecommon.glsl/">noisecommon.glsl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../noise/psrdnoise2d.glsl/">psrdnoise2d.glsl</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Material</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.frag/">default.frag</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../material/default.vert/">default.vert</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Frex Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Lib</li>
+      <li class="breadcrumb-item active">face.glsl</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="faceglsl">face.glsl</h1>
+<hr />
+<p>frex:shaders/lib/face.glsl
+Utilities for deriving facing and face-related attributes.</p>
+<hr />
+<h2 id="preprocessor-define-face_down-0">Preprocessor: <code>#define  FACE_DOWN  0</code></h2>
+<h2 id="preprocessor-define-face_up-1">Preprocessor: <code>#define  FACE_UP    1</code></h2>
+<h2 id="preprocessor-define-face_north-2">Preprocessor: <code>#define  FACE_NORTH 2</code></h2>
+<h2 id="preprocessor-define-face_south-3">Preprocessor: <code>#define  FACE_SOUTH 3</code></h2>
+<h2 id="preprocessor-define-face_west-4">Preprocessor: <code>#define  FACE_WEST  4</code></h2>
+<h2 id="preprocessor-define-face_east-5">Preprocessor: <code>#define  FACE_EAST  5</code></h2>
+<h2 id="unknown-statement-const-mat3-6-frx_uv_matrix-mat3-6-mat3-1-0-0-0-0-0-0-0-0-0-0-0-0-0-1-0-0-0-mat3-1-0-0-0-0-0-0-0-0-0-0-0-0-0-1-0-0-0-mat3-1-0-0-0-0-0-0-0-1-0-0-0-0-0-0-0-0-0-mat3-1-0-0-0-0-0-0-0-1-0-0-0-0-0-0-0-0-0-mat3-0-0-0-0-0-0-0-0-1-0-0-0-1-0-0-0-0-0-mat3-0-0-0-0-0-0-0-0-1-0-0-0-1-0-0-0-0-0">UNKNOWN STATEMENT <code>const mat3 [ 6 ] FRX_UV_MATRIX = mat3 [ 6 ] ( mat3 ( 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 ) , mat3 ( 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 ) , mat3 ( 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 ) , mat3 ( 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 ) , mat3 ( 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 0 . 0 ) , mat3 ( 0 . 0 , 0 . 0 , 0 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 1 . 0 , 0 . 0 , 0 . 0 ) ) ;</code></h2>
+<h2 id="frx_facevec3-normal"><code>frx_face(vec3 normal)</code></h2>
+<p>Returns the FACE_ constant most consistent with the
+  provided world-space normal.</p>
+<p>Will return garbage for normals in screen space.</p>
+<pre><code class="language-glsl">{
+    vec3 a = abs(normal);
+    float m = max(max(a.x, a.y), a.z);
+
+    return a.x == m ? (normal.x &gt; 0 ? FACE_EAST : FACE_WEST)
+    : a.y == m ? (normal.y &gt; 0 ? FACE_UP : FACE_DOWN)
+    : (normal.z &gt; 0 ? FACE_SOUTH : FACE_NORTH);
+}
+</code></pre>
+<h2 id="frx_faceuvvec3-pos-vec3-normal"><code>frx_faceUv(vec3 pos, vec3 normal)</code></h2>
+<p>Estimates UV coordinates for a world-space position
+  and world-space normal, assuming texture coordinates
+  are from the 0,0 face corner to the opposite corner.</p>
+<p>The result is similar to "locked-uv" coordinate mapping
+  in block/item models.</p>
+<p>Will return garbage for vertex or normals in screen space.</p>
+<pre><code class="language-glsl">{
+    mat3 m = FRX_UV_MATRIX[frx_face(normal)];
+    vec3 result = m * pos;
+    return result.xy;
+}
+</code></pre>
+<h2 id="frx_faceuvvec3-pos-int-face"><code>frx_faceUv(vec3 pos, int face)</code></h2>
+<p>Estimates UV coordinates for a world-space position
+  and world-space normal, assuming texture coordinates
+  are from the 0,0 face corner to the opposite corner.</p>
+<p>The result is similar to "locked-uv" coordinate mapping
+  in block/item models.</p>
+<p>Will return garbage for vertex or normals in screen space.</p>
+<pre><code class="language-glsl">{
+    mat3 m = FRX_UV_MATRIX[face];
+    vec3 result = m * pos;
+    return result.xy;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../color.glsl/" class="btn btn-neutral float-left" title="color.glsl"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../math.glsl/" class="btn btn-neutral float-right" title="math.glsl">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../color.glsl/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../math.glsl/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
