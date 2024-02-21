@@ -20,4 +20,4 @@ jobs:
     - name: install mkdocs
       run: pip install mkdocs
     - name: mkdocs deploy
-      run: mkdocs gh-deploy
+      run: mkdocs gh-deploy --clean
