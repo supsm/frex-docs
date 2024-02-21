@@ -1,7 +1,7 @@
 name: mkdocs
 
 on:
-  workflow run:
+  workflow_run:
     workflows: ["Create Docs"]
     types:
     - completed
